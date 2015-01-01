@@ -1,0 +1,104 @@
+[1mdiff --git a/tmk_keyboard-planck-jack/keyboard/gh60/keymap_planck.c b/tmk_keyboard-planck-jack/keyboard/gh60/keymap_planck.c[m
+[1mindex 4ff3f3d..d5013f3 100644[m
+[1m--- a/tmk_keyboard-planck-jack/keyboard/gh60/keymap_planck.c[m
+[1m+++ b/tmk_keyboard-planck-jack/keyboard/gh60/keymap_planck.c[m
+[36m@@ -2,50 +2,57 @@[m
+ [m
+ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {[m
+     [0] = KEYMAP( /* Native */[m
+[31m-      ESC,     Q,    W,    E,    R,    T,    Y,    U,    I,    O,    P,    FN2, [m
+[31m-      BSPC,    A,    S,    D,    F,    G,    H,    J,    K,    L,    SCLN, QUOT,[m
+[31m-      TAB,     Z,    X,    C,    V,    B,    N,    M,    COMM, DOT,  SLSH, ENT,[m
+[31m-      DEL,     LCTL, NO,   LSFT, LALT, SPC,        NO,   LEFT, DOWN, UP,  RGHT), [m
+[31m-    [1] = KEYMAP( /* QWERTY->PHOTOSHOP */[m
+[31m-      DELETE,  0,    1,    2,    3,    4,    5,    6,    7,    8,    9,    FN1,[m
+[31m-      O,       G,    S,    U,    T,    FN27,  F21,  F10,  F11,  F7,   F8,   F9,[m
+[31m-      TAB,     FN22, FN24,  FN6,  F1,   FN7,  F18,  F19,  F23,  F20,  F22,  FN9,[m
+[31m-      COMM,    DOT,  FN10, FN11, FN3,  SPC,        FN12, F2,   FN8,  F3,   F14),[m
+[32m+[m[32m      ESC, QUOT, COMM, DOT, P, Y, F, G, C, R, L, ENT,[m
+[32m+[m[32m      LSFT, A, O, E, U, I, D, H, T, N, S, BSPC,[m[41m    [m
+[32m+[m[32m      TAB, SCLN, Q, J, K, X, B, M, W, V, Z, LCTL,[m
+[32m+[m[32m      NO, NO, NO, NO, FN2, SPC, FN0, NO, NO, NO, ENT),[m
+[32m+[m[32m    [1] = KEYMAP( /* Dvorak->Symbols */[m
+[32m+[m[32m      A, F24, F3, F4, F5, F6,               F7, F8, F9, F10, F11, NO,[m
+[32m+[m[32m      B, F12, F13, F14, F15, F16,               F17, F18, F19, NO, NO, NO,[m
+[32m+[m[32m      C, NO, NO, NO, F20, F21,               F22, F23, NO, NO, NO, NO,[m
+[32m+[m[32m        NO, NO, NO, NO, NO,        NO,        NO, NO, NO, NO, NO),[m
+     [2] = KEYMAP( /* 2: FN3 PHOTOSHOP */[m
+[31m-      ESC,    FN25, FN26,   NO,   NO,   NO,   NO,   NO,   NO,   NO,   NO,   NO,[m
+[31m-      NO,      NO,   NO,   NO,   NO,   NO,   NO,   NO,   NO,   FN19, FN20, FN21, [m
+[31m-      C,       FN4,  NO,  FN5,   NO,   FN23, NO,   NO,   NO,   NO,   FN13, NO,[m
+[31m-      FN14,    FN15, FN16, FN17, FN3,   SPC,        FN18, NO,   NO,   F24,  NO),[m
+[32m+[m[32m      D, NO, NO, NO, NO, NO, NO, NO, UP, NO, NO, NO,[m
+[32m+[m[32m      E, NO, NO, NO, NO, NO, NO, LEFT, DOWN, RIGHT, NO, NO,[m
+[32m+[m[32m      F, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO,[m
+[32m+[m[32m      G, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO),[m
+ };[m
+ [m
+ const uint16_t PROGMEM fn_actions[] = {[m
+[31m-    [1] = ACTION_DEFAULT_LAYER_SET(0),                             // set Qwerty layout[m
+[31m-    [2] = ACTION_DEFAULT_LAYER_SET(1),                             // set Photoshop presets[m
+[31m-    [3] = ACTION_LAYER_ON_OFF(2),                                  // Photoshop function layer[m
+[32m+[m[32m  ACTION_LAYER_TOGGLE(1),[m[41m     [m
+[32m+[m[32m  //[1] = ACTION_LAYER_MOMENTARY(1),[m
+[32m+[m[32m  //[2] = ACTION_LAYER_MOMENTARY(2),[m
+[32m+[m
+[32m+[m[32m  //[2] = ACTION_MODS_KEY(MOD_LSFT, KC_1),[m
+[32m+[m[32m  //[3] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV),[m
+[32m+[m[32m  //[1] = ACTION_LAYER_MOMENTARY(2)[m
+[32m+[m[32m    //[1] = ACTION_DEFAULT_LAYER_SET(0),                             // set Qwerty layout[m
+[32m+[m[32m    //[2] = ACTION_DEFAULT_LAYER_SET(1),                             // set Photoshop presets[m
+[32m+[m[32m    //[3] = ACTION_LAYER_ON_OFF(2),                                  // Photoshop function layer[m
+  [m
+[31m-    [4] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F9),   // photo folder AHK[m
+[31m-    [5] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_I),              // select inverse[m
+[31m-    [6] = ACTION_MODS_KEY(MOD_LSFT, KC_M),                         // marquee select[m
+[31m-    [7] = ACTION_MODS_KEY(MOD_LALT, KC_BSPC),                      // fill [m
+[31m-    [8] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_X),    // warp[m
+[31m-    [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_F12),  // merge all new layer[m
+[31m-    [10] = ACTION_MODS_KEY(MOD_LCTL, KC_MINS),                     // zoom out[m
+[31m-    [11] = ACTION_MODS_KEY(MOD_LCTL, KC_H),                        // RBG sliders[m
+[31m-    [12] = ACTION_MODS_KEY(MOD_LCTL, KC_S),                        // save[m
+[31m-    [13] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_F5),           // layer mask from transparancy [m
+[31m-    [14] = ACTION_MODS_KEY(MOD_LALT, KC_LBRC),                     // prev layer[m
+[31m-    [15] = ACTION_MODS_KEY(MOD_LALT, KC_RBRC),                     // next layer[m
+[31m-    [16] = ACTION_MODS_KEY(MOD_LCTL, KC_EQL),                      // zoom in[m
+[31m-    [17] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_H),             // HSV sliders[m
+[31m-    [18] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F11), // save as PNG[m
+[31m-    [19] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F7),  // gaussian blur[m
+[31m-    [20] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F8),  // motion blur[m
+[31m-    [21] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_X),            // liquify filter[m
+[31m-    [22] = ACTION_MODS_KEY(MOD_LSFT, KC_MINS),                     // prev layer blending[m
+[31m-    [23] = ACTION_MODS_KEY(MOD_LSFT | MOD_LALT, KC_N),             // normal layer blending[m
+[31m-    [24] = ACTION_MODS_KEY(MOD_LSFT, KC_EQL),                      // next layer blending[m
+[31m-    [25] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),                        // step back[m
+[31m-    [26] = ACTION_MODS_KEY(MOD_LCTL, KC_Y),                        // step forward[m
+[31m-    [27] = ACTION_MODS_KEY(MOD_LCTL, KC_R),                        // rasterize[m
+[32m+[m[32m    //[4] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F9),   // photo folder AHK[m
+[32m+[m[32m    //[5] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_I),              // select inverse[m
+[32m+[m[32m    //[6] = ACTION_MODS_KEY(MOD_LSFT, KC_M),                         // marquee select[m
+[32m+[m[32m    //[7] = ACTION_MODS_KEY(MOD_LALT, KC_BSPC),                      // fill[m[41m [m
+[32m+[m[32m    //[8] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_X),    // warp[m
+[32m+[m[32m    //[9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_F12),  // merge all new layer[m
+[32m+[m[32m    //[10] = ACTION_MODS_KEY(MOD_LCTL, KC_MINS),                     // zoom out[m
+[32m+[m[32m    //[11] = ACTION_MODS_KEY(MOD_LCTL, KC_H),                        // RBG sliders[m
+[32m+[m[32m    //[12] = ACTION_MODS_KEY(MOD_LCTL, KC_S),                        // save[m
+[32m+[m[32m    //[13] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_F5),           // layer mask from transparancy[m[41m [m
+[32m+[m[32m    //[14] = ACTION_MODS_KEY(MOD_LALT, KC_LBRC),                     // prev layer[m
+[32m+[m[32m    //[15] = ACTION_MODS_KEY(MOD_LALT, KC_RBRC),                     // next layer[m
+[32m+[m[32m    //[16] = ACTION_MODS_KEY(MOD_LCTL, KC_EQL),                      // zoom in[m
+[32m+[m[32m    //[17] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_H),             // HSV sliders[m
+[32m+[m[32m    //[18] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F11), // save as PNG[m
+[32m+[m[32m    //[19] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F7),  // gaussian blur[m
+[32m+[m[32m    //[20] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL | MOD_LALT, KC_F8),  // motion blur[m
+[32m+[m[32m    //[21] = ACTION_MODS_KEY(MOD_LSFT | MOD_LCTL, KC_X),            // liquify filter[m
+[32m+[m[32m    //[22] = ACTION_MODS_KEY(MOD_LSFT, KC_MINS),                     // prev layer blending[m
+[32m+[m[32m    //[23] = ACTION_MODS_KEY(MOD_LSFT | MOD_LALT, KC_N),             // normal layer blending[m
+[32m+[m[32m    //[24] = ACTION_MODS_KEY(MOD_LSFT, KC_EQL),                      // next layer blending[m
+[32m+[m[32m    //[25] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),                        // step back[m
+[32m+[m[32m    //[26] = ACTION_MODS_KEY(MOD_LCTL, KC_Y),                        // step forward[m
+[32m+[m[32m    //[27] = ACTION_MODS_KEY(MOD_LCTL, KC_R),                        // rasterize[m
+      [m
+ };[m
+warning: LF will be replaced by CRLF in tmk_keyboard-planck-jack/keyboard/gh60/keymap_planck.c.
+The file will have its original line endings in your working directory.

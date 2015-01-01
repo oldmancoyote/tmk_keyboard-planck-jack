@@ -1,0 +1,134 @@
+#include "keymap_common.h"
+
+const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  [0] = KEYMAP( // Dvorak
+      ESC, QUOTE, COMM, DOT, P, Y,                        F, G, C, R, L, ENT,
+      LSFT, A, O, E, U, I,                                D, H, T, N, S, BSPC,    
+      TAB, SCLN, Q, J, K, X,                              B, M, W, V, Z, LCTL,
+      FN2, TRNS, LGUI, LALT, FN3,         SPC,      FN4, ENT, TRNS, FN1, ENT),
+  [1] = KEYMAP( // Qwerty  
+      ESC, Q, W, E, R, T,                                   Y, U, I, O, P, ENT,
+      LSFT, A, S, D, F, G,                              H, J, K, L, TRNS, TAB,
+      LCTL, Z, X, C, V, B,                        N, M, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS,       SPC,     TRNS, TRNS, TRNS, TRNS, ENT),
+  [2] = KEYMAP( // Shortcuts 
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, A, TRNS, TRNS, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, FN11, FN12, FN13, FN14, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS,       TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS),
+  [3] = KEYMAP( // Arrows and Numbers 
+      TRNS, TRNS, 7, 8, 9, TRNS,     TRNS, TRNS, UP, TRNS, TRNS, TRNS,
+      TRNS, TRNS, 4, 5, 6, 0, TRNS, LEFT, DOWN, RIGHT, TRNS, TRNS,
+      TRNS, TRNS, 1, 2, 3, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS,       TRNS,     FN9, TRNS, TRNS, TRNS, TRNS),
+  [4] = KEYMAP( // Symbols 
+      TRNS, FN30, FN17, FN20, GRAVE, TRNS,               FN15, FN24, MINUS, FN18, SLSH, TRNS,
+      TRNS, FN10, FN21, FN22, EQUAL, FN29,               TRNS, FN26, FN19, LBRACKET, BSLASH, TRNS,
+      TRNS, TRNS, TRNS, FN16, FN23, TRNS,               TRNS, FN31, FN25, TRNS, TRNS, TRNS,
+         TRNS, TRNS, TRNS, TRNS, FN9,     TRNS,    TRNS, TRNS, TRNS, TRNS, TRNS),
+  [5] = KEYMAP( // Close Symbols
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS, FN27, FN28, RBRACKET, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS,       TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS),
+
+   /* [0] = KEYMAP( // Native 
+      ESC, QUOTE, COMM, DOT, P, Y, F, G, C, R, L, ENT,
+      LSFT, A, O, E, U, I, D, H, T, N, S, BSPC,    
+      TAB, SCLN, Q, J, K, X, B, M, W, V, Z, LCTL,
+      NO, NO, LGUI, LALT, FN2, SPC, FN1, ENT, TRNS, FN6, ENT),
+    [1] = KEYMAP( // 1: Dvorak->Symbols 
+      TRNS, FN12, FN17, FN20, GRAVE, TRNS,               FN15, FN24, MINUS, FN18, SLSH, TRNS,
+      TRNS, FN14, FN21, FN22, EQUAL, FN11,               TRNS, FN26, FN19, LBRACKET, BSLASH, TRNS,
+      TRNS, TRNS, TRNS, FN16, FN23, TRNS,               TRNS, FN13, FN25, TRNS, TRNS, TRNS,
+         TRNS, TRNS, TRNS, TRNS, FN3,     TRNS,    TRNS, TRNS, TRNS, TRNS, TRNS),
+    [2] = KEYMAP( // 2: Arrows and Numbers 
+      TRNS, TRNS, 7, 8, 9, TRNS, TRNS, TRNS, UP, TRNS, TRNS, TRNS,
+      TRNS, TRNS, 4, 5, 6, 0, TRNS, LEFT, DOWN, RIGHT, TRNS, TRNS,
+      TRNS, TRNS, 1, 2, 3, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS,     FN3, TRNS, TRNS, TRNS, TRNS),
+    [3] = KEYMAP( // 3: The Fuck Me Layer 
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, FN4,
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS, FN27, FN28, RBRACKET, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS,       TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS),
+    [4] = KEYMAP( // 4: Qwerty Layer 
+      ESC, Q, W, E, R, T,     Y, U, I, O, P, ENT,
+      LCTL, A, S, D, F, G,     H, J, K, L, TRNS, TRNS,
+      LSFT, Z, X, C, V, B,     N, M, TRNS, TRNS, TRNS, TRNS,
+      TRNS, TRNS, TRNS, TRNS, TRNS,       SPC,     TRNS, TRNS, TRNS, TRNS, ENT),
+*/
+};
+
+const uint16_t PROGMEM fn_actions[] = {    
+  [1] = ACTION_LAYER_TOGGLE(1),
+  [2] = ACTION_LAYER_MOMENTARY(2),
+
+  [11] = ACTION_MODS_KEY(MOD_LCTL, KC_X),
+  [12] = ACTION_MODS_KEY(MOD_LCTL, KC_C),
+  [13] = ACTION_MODS_KEY(MOD_LCTL, KC_V),
+  [14] = ACTION_MODS_KEY(MOD_LCTL, KC_Z),
+
+
+  [3] = ACTION_LAYER_MOMENTARY(3),
+  [4] = ACTION_LAYER_MOMENTARY(4),
+
+  [29] = ACTION_MODS_KEY(MOD_LSFT, KC_1),
+  [30] = ACTION_MODS_KEY(MOD_LSFT, KC_2),
+  [31] = ACTION_MODS_KEY(MOD_LSFT, KC_3),
+  [10] = ACTION_MODS_KEY(MOD_LSFT, KC_4),
+
+  [15] = ACTION_MODS_KEY(MOD_LSFT, KC_5),
+  [16] = ACTION_MODS_KEY(MOD_LSFT, KC_6),
+  [17] = ACTION_MODS_KEY(MOD_LSFT, KC_7),
+  [18] = ACTION_MODS_KEY(MOD_LSFT, KC_8),
+  [19] = ACTION_MODS_KEY(MOD_LSFT, KC_9),
+
+  [20] = ACTION_MODS_KEY(MOD_LSFT, KC_BSLASH),
+
+  [21] = ACTION_MODS_KEY(MOD_LSFT, KC_COMMA),
+  [22] = ACTION_MODS_KEY(MOD_LSFT, KC_DOT),
+
+  [23] = ACTION_MODS_KEY(MOD_LSFT, KC_SLASH),
+  [24] = ACTION_MODS_KEY(MOD_LSFT, KC_EQUAL),
+  [25] = ACTION_MODS_KEY(MOD_LSFT, KC_MINUS),
+  [26] = ACTION_MODS_KEY(MOD_LSFT, KC_LBRACKET),    
+
+  [27] = ACTION_MODS_KEY(MOD_LSFT, KC_RBRACKET),
+  [28] = ACTION_MODS_KEY(MOD_LSFT, KC_0), 
+
+  [9] = ACTION_LAYER_MOMENTARY(5),
+/* 
+  [1] = ACTION_LAYER_MOMENTARY(1),
+  [2] = ACTION_LAYER_MOMENTARY(2),
+  [3] = ACTION_LAYER_MOMENTARY(3),
+  [4] = ACTION_LAYER_TOGGLE(4),
+  [6] = ACTION_LAYER_TOGGLE(4),
+
+  [11] = ACTION_MODS_KEY(MOD_LSFT, KC_1),
+  [12] = ACTION_MODS_KEY(MOD_LSFT, KC_2),
+  [13] = ACTION_MODS_KEY(MOD_LSFT, KC_3),
+  [14] = ACTION_MODS_KEY(MOD_LSFT, KC_4),
+  [15] = ACTION_MODS_KEY(MOD_LSFT, KC_5),
+  [16] = ACTION_MODS_KEY(MOD_LSFT, KC_6),
+  [17] = ACTION_MODS_KEY(MOD_LSFT, KC_7),
+  [18] = ACTION_MODS_KEY(MOD_LSFT, KC_8),
+  [19] = ACTION_MODS_KEY(MOD_LSFT, KC_9),
+
+  [20] = ACTION_MODS_KEY(MOD_LSFT, KC_BSLASH),
+
+  [21] = ACTION_MODS_KEY(MOD_LSFT, KC_COMMA),
+  [22] = ACTION_MODS_KEY(MOD_LSFT, KC_DOT),
+
+  [23] = ACTION_MODS_KEY(MOD_LSFT, KC_SLASH),
+  [24] = ACTION_MODS_KEY(MOD_LSFT, KC_EQUAL),
+  [25] = ACTION_MODS_KEY(MOD_LSFT, KC_MINUS),
+  [26] = ACTION_MODS_KEY(MOD_LSFT, KC_LBRACKET),    
+
+  [27] = ACTION_MODS_KEY(MOD_LSFT, KC_RBRACKET),
+  [28] = ACTION_MODS_KEY(MOD_LSFT, KC_0), 
+
+  
+  */
+
+};
